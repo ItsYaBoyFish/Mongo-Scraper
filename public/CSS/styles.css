@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.navbar {
+  background-color: rgb(204, 172, 172);
+}
+
+
+.logo {
+  color: #fff;
+  font-size: 30px;
+  margin-left: 1em;
+}

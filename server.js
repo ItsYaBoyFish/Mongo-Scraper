@@ -5,7 +5,12 @@ var test = [
   {Title: 'Test 3', Description: 'Test 3', URL: 'Test 2'}
 ];
 
+// MongoDB Information
+const databaseURL = "mongoScraper";
+const collections = ["Articles", "Notes"];
 
+const cheerio = require('cheerio');
+const axios = require('axios');
 const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
@@ -22,9 +27,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Landing page route
 app.get('/', function (req, res) {
-  var data = {
-    data: test
-  }
+  var results = [];
+  var data;
+    axios.get('https://www.nhl.com/').then(function(response) {
+      const $ = cheerio.load(response.data);
+      
+      $("article.showcase_list-item").each((i, el) => {
+        var test = $(el).find('.showcase_headline');
+        console.log(test);
+      })
+      
+      
+    });
     res.render('home', data);
 });
 
@@ -37,3 +51,7 @@ app.listen(port, () => {
 });
 
 
+
+function renderHome(res) {
+  res.render('home');
+}

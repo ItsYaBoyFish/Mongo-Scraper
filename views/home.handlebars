@@ -2,13 +2,13 @@
 {{#each data}}
   <div class="card">
     <div class="card-header">
-      <h4 class="data-title">{{this.Title}}</h4>
+      <h4 class="data-title">{{this.articles.title}}</h4>
     </div>
     <div class="card-content">
-      <p>{{this.Description}}</p>
+      <p>{{this.link}}</p>
     </div>
     <div class="card-footer">
-      <a href="{{this.URL}}">Click Here To Visit The Article</a>
+      <a href="{{this.link}}">Click Here To Visit The Article</a>
     </div>
   </div>
 {{/each}}
